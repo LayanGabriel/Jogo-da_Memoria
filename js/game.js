@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.player');
+const timer = document.querySelector('.timer');
 
 const characters = [
   'beth',
@@ -22,11 +24,23 @@ const createElement = (tag, className) => {
 let firstCard = '';
 let secondCard = '';
 
+
 const checkEndGame = () => {
     const disableCards = document.querySelectorAll('.disable-card');
 
-    if(disableCards.length === 20){
-        alert('Parabéns, você conseguiu!');
+    if (disableCards.length === 20) {
+        clearInterval(this.loop);
+
+        const modal = document.getElementById('endgame-modal');
+        const message = document.getElementById('endgame-message');
+        const button = document.getElementById('go-home');
+
+        message.innerText = `Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi de ${timer.innerHTML} segundos`;
+        modal.classList.remove('hidden');
+
+        button.onclick = () => {
+            window.location.href = '../index.html'; 
+        };
     }
 }
 
@@ -100,4 +114,22 @@ const loadGame = () => {
     });
 };
 
-loadGame();
+const startTimer = () => {
+
+    this.loop = setInterval(() => {
+
+        const currentTime = +timer.innerHTML;
+        timer.innerHTML = currentTime + 1;
+
+    }, 1000);
+
+}
+
+window.onload = () =>{
+
+    spanPlayer.innerHTML = localStorage.getItem('player');
+    startTimer();
+    loadGame();
+
+}
+
