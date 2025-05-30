@@ -17,7 +17,7 @@ header{
     width: 100%;
     max-width: 800px;
     padding: 30px;
-    margin: 0 0 30px;
+    margin: 0 0 15px;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.6);
     font-size: 1.2em;
@@ -28,7 +28,7 @@ header{
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
     width: 100%;
-    max-width: 800px;
+    max-width: 790px;
     margin: 0 auto;
 }
 
@@ -116,4 +116,35 @@ header{
 #go-home:active {
   background-color: #3e8e41;
   transform: scale(0.98);
+}
+
+@media only screen and (max-width: 1600px){
+  .grid{ 
+    max-width: 720px;
+  }
+  header{
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 760px){
+  .grid{
+    gap: 10px;
+  }
+
+  main{
+    padding: 5px 5px 100px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+
+  main{
+    padding: 5px 5px 100px;
+  }
+
+  .grid{
+    gap: 5px;
+  }
+
 }
